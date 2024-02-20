@@ -1,6 +1,9 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,6 +31,7 @@ public class BaseTest {
     public static Properties configProperties = new Properties();
     public static Properties ORproperties = new Properties();
     public static FileInputStream fileInputStream;
+    public static Logger logger = Logger.getLogger("devpinoyLogger");
 
     @BeforeSuite
     public void setUp() {
@@ -42,6 +46,7 @@ public class BaseTest {
 
             try {
                 configProperties.load(fileInputStream);
+                logger.debug("Config file loaded");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -54,6 +59,7 @@ public class BaseTest {
 
             try {
                 ORproperties.load(fileInputStream);
+                logger.debug("Config file loaded");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -61,20 +67,37 @@ public class BaseTest {
             if (configProperties.getProperty("browserName").equals("chrome")) {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
+                logger.debug("Chrome is launched");
+
                 driver.manage().deleteAllCookies();
 
             } else if (configProperties.getProperty("browserName").equals("firefox")) {
                 FirefoxOptions options = new FirefoxOptions();
                 options.setBinary("/usr/lib/firefox/firefox");
                 driver = new FirefoxDriver(options);
+                logger.debug("Firefox is launched");
                 driver.manage().deleteAllCookies();
             } else {
                 System.out.println("Browser is not Chrome or Firefox!!!!!");
             }
 
             driver.get(configProperties.getProperty("testsiteurl"));
+            logger.debug("Navigated to " + configProperties.getProperty("testsiteurl"));
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        }
+
+    }
+
+    public boolean isElementPresent(By by) {
+
+
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+
+            return false;
         }
 
     }
@@ -84,7 +107,7 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
-
+        logger.debug("Test execution is completed");
     }
 
 }
