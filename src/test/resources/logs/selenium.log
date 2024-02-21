@@ -1,7 +1,7 @@
-09:14:13,483 DEBUG devpinoyLogger:49 - Config file loaded
-09:14:13,484 DEBUG devpinoyLogger:62 - Config file loaded
-09:14:14,411 DEBUG devpinoyLogger:70 - Chrome is launched
-09:14:15,250 DEBUG devpinoyLogger:85 - Navigated to https://woman.bg/
-09:14:15,378 DEBUG devpinoyLogger:12 - Inside Get category test
-09:14:15,389 DEBUG devpinoyLogger:20 - Test is PASSED
-09:14:15,464 DEBUG devpinoyLogger:110 - Test execution is completed
+13:34:08,028 DEBUG devpinoyLogger:49 - Config file loaded
+13:34:08,029 DEBUG devpinoyLogger:62 - Config file loaded
+13:34:08,856 DEBUG devpinoyLogger:70 - Chrome is launched
+13:34:10,077 DEBUG devpinoyLogger:85 - Navigated to https://woman.bg/
+13:34:10,227 DEBUG devpinoyLogger:12 - Inside Get category test
+13:34:10,239 DEBUG devpinoyLogger:20 - Test is PASSED
+13:34:10,313 DEBUG devpinoyLogger:110 - Test execution is completed
