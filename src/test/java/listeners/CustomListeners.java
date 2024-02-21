@@ -25,7 +25,7 @@ import utilities.TestUtil;
 
 public class CustomListeners extends BaseTest implements ITestListener, ISuiteListener {
 
-    // Path fixed
+    // Path fixed with reports
     static Date d = new Date();
     static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
     static String messageBody;
