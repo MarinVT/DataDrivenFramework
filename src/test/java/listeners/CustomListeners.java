@@ -23,16 +23,12 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import utilities.ExtentManager;
 import utilities.TestUtil;
 
-import utilities.ExtentManager;
-
-import java.util.Date;
-
 public class CustomListeners extends BaseTest implements ITestListener, ISuiteListener {
 
     static Date d = new Date();
     static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
     static String messageBody;
-    private static ExtentReports extent = ExtentManager.createInstance(System.getProperty("/reports/"+fileName));
+    private static ExtentReports extent = ExtentManager.createInstance(System.getProperty("user.dir")+"/reports/"+fileName);
     public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 
 

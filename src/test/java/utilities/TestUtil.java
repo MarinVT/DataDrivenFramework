@@ -10,7 +10,6 @@ import base.BaseTest;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.annotations.DataProvider;
 
 public class TestUtil extends BaseTest {
 
